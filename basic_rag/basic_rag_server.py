@@ -33,7 +33,8 @@ from pydantic import BaseModel, Field
 ROOT = Path(__file__).resolve().parents[1]
 BASIC_RAG_DIR = ROOT / "basic_rag"
 CORPUS_PATH = ROOT / "data/corpus/merged_protocols_structured_clean.jsonl"
-CHROMA_DIR = BASIC_RAG_DIR / "chroma_db"
+# BASIC_RAG_CHROMA_DIR lets a deployment use an index built with another embedding model
+CHROMA_DIR = Path(os.getenv("BASIC_RAG_CHROMA_DIR") or (BASIC_RAG_DIR / "chroma_db"))
 PARENT_DOCSTORE_DIR = BASIC_RAG_DIR / "parent_docstore"
 
 load_dotenv(ROOT / ".env")

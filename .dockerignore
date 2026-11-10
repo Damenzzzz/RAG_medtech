@@ -4,3 +4,4 @@
 __pycache__
 *.pyc
 .vercel-build-assets
+basic_rag/chroma_db_*

@@ -8,3 +8,4 @@ __pycache__/
 basic_rag/chroma_db/
 data/corpus/merged_protocols_structured_clean.jsonl
 .vercel-build-assets/
+basic_rag/chroma_db_*/

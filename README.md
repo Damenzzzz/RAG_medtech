@@ -30,3 +30,13 @@ docker build -t medtech-basic-rag . && docker run --env-file .env -p 8080:8080 m
 
 The full local stack (frontend + both RAG services + Supabase) lives in
 `MedTech/docker/` and expects this repo cloned next to `MedTech/`.
+
+## Other embedding models
+`BASIC_RAG_CHROMA_DIR` selects the Chroma index. `scripts/reindex_chroma.py` re-embeds the
+existing 22,100 chunks (same ids/metadata, so the parent docstore still matches) with any
+OpenAI-compatible embeddings endpoint, e.g. Gemini via MedTech's `docker/gemini-proxy`:
+```bash
+python scripts/reindex_chroma.py --dst basic_rag/chroma_db_gemini \
+  --base-url http://gemini-proxy:8000/v1 --model gemini-embedding-001:document
+# run with BASIC_RAG_CHROMA_DIR=basic_rag/chroma_db_gemini EMBED_MODEL=gemini-embedding-001:query
+```
