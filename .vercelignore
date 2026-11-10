@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+.git
+.vercel
+__pycache__
+*.pyc
+.venv
+venv
+basic_rag/chroma_db/chroma.sqlite3
+data/corpus/merged_protocols_structured_clean.jsonl

@@ -1,0 +1,10 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+
+# Large prebuilt assets — published as GitHub Release "assets-v1",
+# restored by scripts/fetch_assets.sh
+basic_rag/chroma_db/
+data/corpus/merged_protocols_structured_clean.jsonl
+.vercel-build-assets/

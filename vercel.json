@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "python scripts/vercel_build.py",
+  "functions": {
+    "app.py": {
+      "maxDuration": 300,
+      "includeFiles": "{basic_rag/chroma_db/**,basic_rag/parent_docstore/**,data/corpus/**}"
+    }
+  }
+}
